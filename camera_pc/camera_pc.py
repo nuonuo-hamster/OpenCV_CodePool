@@ -22,7 +22,7 @@ def camera_capture(frame, width=[-1, -1], high=[-1, -1]):
     number = serial_number()
     
     if width[0] != -1:
-        cv2.imwrite("./camera_pc/saved_{}.jpg".format(number), frame[width[0]:high[1], width[0]:high[1]])
+        cv2.imwrite("./camera_pc/saved_{}.jpg".format(number), frame[high[0]:high[1], width[0]:width[1]])
 
     else:
         cv2.imwrite("./camera_pc/saved_{}.jpg".format(number), frame)
