@@ -37,7 +37,7 @@ def hsv_track_bar_update(hsv_lower, hsv_upper, win_name):
     cv2.setTrackbarPos("V_upper\n", win_name, hsv_upper[2])
 
 # 遮罩
-def mask(img_hsv, hsv_lower, hsv_upper):
+def mask(img, img_hsv, hsv_lower, hsv_upper):
         
         # 二值化為純黑純白影像，若介於自定義顏色區間內令像素值為255，反之則令像素值為0
         img_thres = cv2.inRange(img_hsv, hsv_lower, hsv_upper)
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         # 同步滑桿數值
         hsv_track_bar_update(hsv_lower, hsv_upper, win_name)
         
-        img_masked = mask(img_hsv, hsv_lower, hsv_upper)
+        img_masked = mask(img, img_hsv, hsv_lower, hsv_upper)
         
         image = cv2.hconcat([img, img_masked])   
         
